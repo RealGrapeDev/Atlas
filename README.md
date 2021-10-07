@@ -1,5 +1,5 @@
 <div align="center">
-  <h2>Atlas - Bukkit Profile System</h2>
+  <h2>Atlas - Bukkit Profile System [1.14.x - 1.17.x]</h2>
   
   ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
   ![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)
