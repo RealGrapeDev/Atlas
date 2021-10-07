@@ -39,7 +39,6 @@ public class ProfileMenu extends Menu {
     @Override
     public Map<Integer, MenuButton> getButtons(Player player) {
         Map<Integer, MenuButton> buttons = new HashMap<>();
-
         /* We iterate through all of the Profiles the UserProfile has, and create a new button with the profile's data */
         for (Profile profile : userProfile.getAllProfiles()) {
             List<String> lore = atlas.getConfig().getStringList("PROFILES-MENU.PROFILE-BUTTON.LORE");

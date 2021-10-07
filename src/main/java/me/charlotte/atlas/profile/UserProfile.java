@@ -95,10 +95,10 @@ public class UserProfile {
             profiles.put(uuid, this);
             return;
         }
-
         Profile profile = Profile.createProfileFromPlayer(Bukkit.getPlayer(uuid), "Default");
         this.selectedProfile = profile;
         this.allProfiles.add(profile);
+        profiles.put(uuid, this);
         this.save();
     }
 
@@ -133,7 +133,6 @@ public class UserProfile {
                 atlas.getData().set(uuid.toString() + ".PROFILES." + profile.getName() + ".POTION_EFFECTS." + potionEffect.getType() + ".LEVEL", potionEffect.getAmplifier());
             }
         }
-
         atlas.getData().save();
     }
 
@@ -221,7 +220,7 @@ public class UserProfile {
     }
 
     public List<Profile> getAllProfiles() {
-        return allProfiles;
+        return this.allProfiles;
     }
 
     public Profile getSelectedProfile() {

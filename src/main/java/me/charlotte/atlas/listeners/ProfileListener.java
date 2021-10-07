@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * @author Charlotte (charlotte@frozengames.cc)
@@ -39,7 +40,6 @@ public class ProfileListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         UserProfile profile = UserProfile.getByPlayer(player);
-
         /* We load the profile from the data.yml and setup their profile */
         profile.load();
         profile.setupProfile(player);
@@ -74,6 +74,11 @@ public class ProfileListener implements Listener {
         event.setCancelled(true);
 
         Profile profile = renameProfileMap.get(player.getUniqueId());
+        Profile getByName = Profile.getByName(userProfile, event.getMessage());
+        if (getByName != null) {
+            player.sendMessage(Locale.PROFILE_EXISTS.get());
+            return;
+        }
 
         player.sendMessage(Locale.PROFILE_RENAMED.get(profile.getName(), event.getMessage()));
 
@@ -105,11 +110,13 @@ public class ProfileListener implements Listener {
             player.sendMessage(Locale.PROFILE_EXISTS.get());
             return;
         }
+        newProfileList.remove(player.getUniqueId());
         Profile.createEmptyProfile(event.getMessage()).whenComplete((profile1, throwable) -> {
             atlas.getExecutorService().execute(() -> {
                 userProfile.getAllProfiles().add(profile1);
                 userProfile.save();
             });
+            player.sendMessage(Locale.PROFILE_CREATED.get(profile1.getName()));
             /* Open the menu to confirm if they want to load the profile
              * This has to be done on the main thread since InventoryOpenEvent cannot be ran asynchronously */
             new BukkitRunnable() {
