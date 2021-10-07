@@ -29,7 +29,6 @@ public class Profile {
     private float exhaustion;
     private int foodlevel;
     private double healthLevel;
-
     private double healthScale;
     private float saturation;
     private GameMode gameMode;
@@ -43,7 +42,7 @@ public class Profile {
     private List<ItemStack> inventoryContents;
     private List<ItemStack> enderChestContents;
 
-    /* Players armor contents, inventory contents, and enderchest contents */
+    /* Players Active Potion Effects */
     private List<PotionEffect> potionEffects;
 
     public void setBedLocation(Location bedLocation) {

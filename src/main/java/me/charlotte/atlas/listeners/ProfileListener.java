@@ -110,6 +110,8 @@ public class ProfileListener implements Listener {
                 userProfile.getAllProfiles().add(profile1);
                 userProfile.save();
             });
+            /* Open the menu to confirm if they want to load the profile
+             * This has to be done on the main thread since InventoryOpenEvent cannot be ran asynchronously */
             new BukkitRunnable() {
                 @Override
                 public void run() {
@@ -117,9 +119,6 @@ public class ProfileListener implements Listener {
                 }
             }.runTask(atlas);
         });
-
-        /* Open the menu to confirm if they want to load the profile
-         * This has to be done on the main thread since InventoryOpenEvent cannot be ran asynchronously */
     }
 
 
