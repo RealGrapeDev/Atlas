@@ -1,0 +1,6 @@
+name: Atlas
+main: me.charlotte.atlas.Atlas
+version: 1.0
+author: Charlotte
+commands:
+  profile:

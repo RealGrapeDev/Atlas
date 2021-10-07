@@ -1,0 +1,31 @@
+
+MAX-PROFILES-PER-USER: 3
+
+PROFILES-MENU:
+  PROFILE-BUTTON:
+    MATERIAL: "BOOK"
+    NAME: "&7&l[&a&l>&7&l] &aSelect this Profile"
+    LORE:
+      - ""
+      - "&3&lInformation"
+      - " &3* &bName&f: {name}"
+      - " &3* &bWorld&f: {world}"
+      - " &3* &bLocation&f:"
+      - "   &7X: {x}"
+      - "   &7Y: {y}"
+      - "   &7Z: {z}"
+      - " &3* &bHealth&f: {health}"
+      - " &3* &bGamemode &f: {gamemode}"
+      - ""
+      - "&3&lSelected&f: {selected}"
+      - ""
+      - "&7&oLeft-Click to select this profile"
+      - "&7&oShift-Left-Click to rename this profile"
+      - ""
+      - "&7&oRight-Click to delete this profile."
+      - ""
+  NEW-PROFILE-BUTTON:
+    MATERIAL: "EMERALD_BLOCK"
+    NAME: "&aCreate new Profile"
+    LORE:
+      - "&7&oClick to create a new profile"
