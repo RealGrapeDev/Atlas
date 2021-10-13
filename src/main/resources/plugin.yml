@@ -1,6 +1,8 @@
 name: Atlas
 main: me.charlotte.atlas.Atlas
-version: 1.0
-author: Charlotte
+version: 1.0.0
+author: Grape
+description: An easy to use user profile system for Spigot.
 commands:
   profile:
+    description: View all existing profiles and interchange between them.
